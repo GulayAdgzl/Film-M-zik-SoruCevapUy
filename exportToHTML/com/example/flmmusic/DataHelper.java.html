@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>DataHelper.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DataHelper.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.flmmusic</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.content.Context</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.content.SharedPreferences</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">DataHelper {</span>
+
+
+    <span class="s0">private static </span><span class="s1">Context context</span><span class="s0">;</span>
+
+    <span class="s0">public </span><span class="s1">DataHelper(Context context){</span>
+        <span class="s0">this</span><span class="s1">.context=context</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s2">//Int değer döndürdüğünde</span>
+    <span class="s0">public static  void </span><span class="s1">saveDataInt (String s</span><span class="s0">, int </span><span class="s1">i){</span>
+        <span class="s1">SharedPreferences preferences=context.getSharedPreferences(</span><span class="s3">&quot;PREFS&quot;</span><span class="s0">,</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">SharedPreferences.Editor editor=preferences.edit()</span><span class="s0">;</span>
+        <span class="s1">editor.putInt(s</span><span class="s0">,</span><span class="s1">i)</span><span class="s0">;</span>
+        <span class="s1">editor.commit()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    
+    <span class="s0">public static  int </span><span class="s1">receiveDataInt(String s</span><span class="s0">,int  </span><span class="s1">i){</span>
+        <span class="s1">SharedPreferences preferences=context.getSharedPreferences(</span><span class="s3">&quot;PREFS&quot;</span><span class="s0">,</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">points=preferences.getInt(s</span><span class="s0">,</span><span class="s1">i)</span><span class="s0">;</span>
+        <span class="s0">return  </span><span class="s1">points</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s2">//String değer döndürdüğünde</span>
+    <span class="s0">public static  void </span><span class="s1">saveDataString (String s</span><span class="s0">,</span><span class="s1">String i){</span>
+        <span class="s1">SharedPreferences preferences=context.getSharedPreferences(</span><span class="s3">&quot;PREFS&quot;</span><span class="s0">,</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">SharedPreferences.Editor editor=preferences.edit()</span><span class="s0">;</span>
+        <span class="s1">editor.putString(s</span><span class="s0">,</span><span class="s1">i)</span><span class="s0">;</span>
+        <span class="s1">editor.commit()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    
+    <span class="s0">public static </span><span class="s1">String receiveDataString(String s</span><span class="s0">, </span><span class="s1">String i){</span>
+        <span class="s1">SharedPreferences preferences=context.getSharedPreferences(</span><span class="s3">&quot;PREFS&quot;</span><span class="s0">,</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">String points=preferences.getString (s</span><span class="s0">,</span><span class="s1">i)</span><span class="s0">;</span>
+        <span class="s0">return  </span><span class="s1">points</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">//Boolaen değer döndürdüğünde</span>
+    <span class="s0">public static  void </span><span class="s1">saveDataBoolean (String s</span><span class="s0">,boolean </span><span class="s1">i){</span>
+        <span class="s1">SharedPreferences preferences=context.getSharedPreferences(</span><span class="s3">&quot;PREFS&quot;</span><span class="s0">,</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">SharedPreferences.Editor editor=preferences.edit()</span><span class="s0">;</span>
+        <span class="s1">editor.putBoolean(s</span><span class="s0">,</span><span class="s1">i)</span><span class="s0">;</span>
+        <span class="s1">editor.commit()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static  boolean </span><span class="s1">receiveDataboolean(String s</span><span class="s0">,boolean  </span><span class="s1">i){</span>
+        <span class="s1">SharedPreferences preferences=context.getSharedPreferences(</span><span class="s3">&quot;PREFS&quot;</span><span class="s0">,</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">boolean </span><span class="s1">points=preferences.getBoolean (s</span><span class="s0">,</span><span class="s1">i)</span><span class="s0">;</span>
+        <span class="s0">return  </span><span class="s1">points</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

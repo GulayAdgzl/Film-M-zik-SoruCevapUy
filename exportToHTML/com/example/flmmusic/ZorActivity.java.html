@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>ZorActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ZorActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.flmmusic</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.content.Intent</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.ImageButton</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.RelativeLayout</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.TextView</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Toast</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Arrays</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Random</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">ZorActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
+
+    <span class="s1">DataHelper dataHelper</span><span class="s0">;</span>
+    <span class="s1">TextView sorularr</span><span class="s0">,</span><span class="s1">puann</span><span class="s0">,</span><span class="s1">filmoyun</span><span class="s0">;</span>
+    <span class="s1">ImageButton dogru</span><span class="s0">,</span><span class="s1">yanlis</span><span class="s0">,</span><span class="s1">anasayfa</span><span class="s0">;</span>
+
+
+    <span class="s1">Random r=</span><span class="s0">new </span><span class="s1">Random()</span><span class="s0">;</span>
+    <span class="s0">int </span><span class="s1">n</span><span class="s0">;</span>
+    <span class="s0">int </span><span class="s1">points=</span><span class="s2">0</span><span class="s0">;</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate (savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView (R.layout.activity_zor)</span><span class="s0">;</span>
+        <span class="s1">dataHelper=</span><span class="s0">new </span><span class="s1">DataHelper(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">sorularr=(TextView) findViewById(R.id.sorular)</span><span class="s0">;</span>
+        <span class="s1">filmoyun=(TextView) findViewById(R.id.filmoyun)</span><span class="s0">;</span>
+        <span class="s1">puann=(TextView) findViewById(R.id.puan)</span><span class="s0">;</span>
+        <span class="s1">dogru=(ImageButton) findViewById(R.id.dogru)</span><span class="s0">;</span>
+        <span class="s1">yanlis=(ImageButton) findViewById(R.id.yanlis)</span><span class="s0">;</span>
+        <span class="s1">anasayfa=(ImageButton) findViewById(R.id.anasayfagit)</span><span class="s0">;</span>
+        <span class="s1">anasayfa.setOnClickListener (</span><span class="s0">new </span><span class="s1">View.OnClickListener () {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View v) {</span>
+
+                <span class="s1">startActivity (</span><span class="s0">new </span><span class="s1">Intent (ZorActivity.</span><span class="s0">this,</span><span class="s1">MainActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+                <span class="s1">finish ()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">filmoyun.setText(dataHelper.receiveDataString(</span><span class="s3">&quot;İsim&quot;</span><span class="s0">,</span><span class="s3">&quot;GÜLAY-ADIGÜZEL&quot;</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s4">//Sorular</span>
+
+        <span class="s0">final </span><span class="s1">String[] arrayQ={getString(R.string.z1)</span><span class="s0">,</span><span class="s1">getString(R.string.z2)</span><span class="s0">,</span><span class="s1">getString(R.string.z3)</span>
+                <span class="s0">,</span><span class="s1">getString(R.string.z4)</span><span class="s0">,</span><span class="s1">getString(R.string.z5)}</span><span class="s0">;</span>
+        <span class="s0">final </span><span class="s1">Boolean[] arrayA={</span><span class="s0">true,false,false,false,true</span><span class="s1">}</span><span class="s0">;</span>
+        <span class="s0">final </span><span class="s1">ArrayList&lt;String&gt; sorular=</span><span class="s0">new </span><span class="s1">ArrayList&lt;String&gt;(Arrays.asList(arrayQ))</span><span class="s0">;</span>
+        <span class="s0">final  </span><span class="s1">ArrayList&lt;Boolean&gt;cevaplar=</span><span class="s0">new </span><span class="s1">ArrayList&lt;Boolean&gt;(Arrays.asList(arrayA))</span><span class="s0">;</span>
+        <span class="s1">n=r.nextInt(sorular.size())</span><span class="s0">;</span>
+        <span class="s1">sorularr.setText(sorular.get(n))</span><span class="s0">;</span><span class="s4">//Soruların karışık olmasını sağlar</span>
+        <span class="s1">dogru.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View v) {</span>
+                <span class="s0">if</span><span class="s1">(cevaplar.get(n)){</span>
+                    <span class="s1">points++</span><span class="s0">;</span>
+                    <span class="s1">sorular.remove(n)</span><span class="s0">;</span>
+                    <span class="s1">cevaplar.remove(n)</span><span class="s0">;</span>
+                    <span class="s1">puann.setText(</span><span class="s3">&quot;Skor&quot;</span><span class="s1">+points)</span><span class="s0">;</span>
+                    <span class="s0">if</span><span class="s1">(sorular.size() == </span><span class="s2">0</span><span class="s1">) {</span>
+                        <span class="s1">result()</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                    <span class="s0">else</span><span class="s1">{</span>
+                        <span class="s1">n=r.nextInt(sorular.size())</span><span class="s0">;</span>
+                        <span class="s1">sorularr.setText(sorular.get(n))</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                <span class="s1">}</span>
+                <span class="s0">else</span><span class="s1">{</span>
+                    <span class="s1">result()</span><span class="s0">;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+            <span class="s0">private void </span><span class="s1">result() {</span>
+                <span class="s1">dataHelper.saveDataInt(</span><span class="s3">&quot;Puan Zor&quot;</span><span class="s0">,</span><span class="s1">points)</span><span class="s0">;</span>
+                <span class="s1">startActivity(</span><span class="s0">new </span><span class="s1">Intent(ZorActivity.</span><span class="s0">this,</span>
+                        <span class="s1">ResultActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">yanlis.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View v) {</span>
+                <span class="s0">if</span><span class="s1">(!cevaplar.get(n)){</span>
+                    <span class="s1">points++</span><span class="s0">;</span>
+                    <span class="s1">sorular.remove(n)</span><span class="s0">;</span>
+                    <span class="s1">cevaplar.remove(n)</span><span class="s0">;</span>
+                    <span class="s1">puann.setText(</span><span class="s3">&quot;Skor&quot;</span><span class="s1">+points)</span><span class="s0">;</span>
+                    <span class="s0">if</span><span class="s1">(sorular.size() == </span><span class="s2">0</span><span class="s1">) {</span>
+                        <span class="s1">result()</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                    <span class="s0">else</span><span class="s1">{</span>
+                        <span class="s1">n=r.nextInt(sorular.size())</span><span class="s0">;</span>
+                        <span class="s1">sorularr.setText(sorular.get(n))</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                <span class="s1">}</span>
+                <span class="s0">else</span><span class="s1">{</span>
+                    <span class="s1">result()</span><span class="s0">;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+            <span class="s0">private void </span><span class="s1">result() {</span>
+                <span class="s1">dataHelper.saveDataInt(</span><span class="s3">&quot;Puan Zor&quot;</span><span class="s0">,</span><span class="s1">points)</span><span class="s0">;</span>
+
+                <span class="s1">startActivity(</span><span class="s0">new </span><span class="s1">Intent(ZorActivity.</span><span class="s0">this, </span><span class="s1">ResultActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+                <span class="s1">finish ()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+
+        <span class="s1">})</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

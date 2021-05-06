@@ -1,0 +1,32 @@
+<resources>
+   <string name="app_name">FılmMusic</string>
+
+    <string name="k1">Marty McFly,Geleceğe Dönüş filminin Krakteridir.</string>
+    <string name="k2">Yalnızca bilimkurgu türünde filmler izleyen biri, Azgınlık Raporunu izlemiştir.</string>
+    <string name="k3">Hasta la vista, baby" sözüyle hatırlanan James Cameron'ın yönettiği film serisinin adı Terminatördür</string>
+    <string name="k4">Oscar ödüllerinin provası olarak anılan ödül töreninin Altın Küredir</string>
+    <string name="k5">"Inception", "Batman Başlıyor", "Kara Şövalye Yükseliyor" filmlerinin yönetmeni Christopher Nolan?</string>
+
+
+    <string name="o1">"Meksikalı", "Halka" ve "Karayip Korsanları" filmlerinin yönetmeni Gore Verbinski</string>
+    <string name="o2">Türk filmlerinde çiftleri her zaman koruyan, iyi yürekli ve kalender olarak gösterilen kişiler genellikle Bankacılardır
+</string>
+    <string name="o3">"Ivan'ın Çocukluğu", "Solaris", "Ayna" filmleriyle tanınan yönetmen Andrey Tarkovski</string>
+    <string name="o4">"Mavi Boncuk" filminde Emel Sayın Halı içinde kaçırılır.</string>
+    <string name="o5">Jack Nicholson un başrolünde oynadığı Guguk Kuşu ve Mozart ın hayatını konu alan "Amadeus" filmlerinin yönetmeni Milos Forman</string>
+
+
+    <string name="z1">Yeşilçam da 280 filmde yapımcı ve yönetmen olarak olarak imzası bulunan Türkiye nin 2001 de açılan ilk sinema müzesinin kurucusu Türker İnanoğlu</string>
+    <string name="z2">"Transformers" ve "Armageddon" filmlerinin yönetmeni Michael Bay?</string>
+    <string name="z3"> "Uyuyan bir ejderhayı asla gıdıklama" sloganı  Harry Potter  film serisinde  yer almakta</string>
+    <string name="z4">Leon filminde, Jean Reno tarafından canlandırılan baş karakterin sürekli içtiği içecek Süttür.</string>
+    <string name="z5">ABD eski başkan yardımcısı Al Gore un senaristliğini ve oyunculuğunu yaptığı 2007 de Oscar alan küresel ısınmayı konu alan belgeselin adı Uygunsuz Gerçek</string>
+
+
+
+
+
+
+
+
+</resources>

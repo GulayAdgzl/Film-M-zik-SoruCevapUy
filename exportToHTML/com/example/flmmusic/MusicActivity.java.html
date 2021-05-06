@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>MusicActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MusicActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.flmmusic</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.content.Intent</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.media.MediaPlayer</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.google.android.material.floatingactionbutton.FloatingActionButton</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.google.android.material.snackbar.Snackbar</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.appcompat.widget.Toolbar</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.ImageButton</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Toast</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">MusicActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
+
+
+    <span class="s0">private </span><span class="s1">ImageButton btnPlay</span><span class="s0">,</span><span class="s1">btnpause</span><span class="s0">,</span><span class="s1">btnstop</span><span class="s0">;</span>
+    <span class="s1">MediaPlayer player</span><span class="s0">;</span>
+    <span class="s1">Button anasay</span><span class="s0">;</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate (savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView (R.layout.activity_music)</span><span class="s0">;</span>
+        <span class="s1">btnPlay=findViewById (R.id.btnPlay)</span><span class="s0">;</span>
+        <span class="s1">btnpause=findViewById (R.id.btnpause)</span><span class="s0">;</span>
+        <span class="s1">btnstop=findViewById (R.id.btnstop)</span><span class="s0">;</span>
+        <span class="s1">anasay=(Button) findViewById(R.id.home)</span><span class="s0">;</span>
+
+
+        <span class="s1">anasay.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View v) {</span>
+                <span class="s1">startActivity(</span><span class="s0">new </span><span class="s1">Intent (MusicActivity.</span><span class="s0">this,</span><span class="s1">MainActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+                <span class="s1">finish()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">play(View view){</span>
+
+        <span class="s0">if </span><span class="s1">(player == </span><span class="s0">null</span><span class="s1">) {</span>
+            <span class="s1">player = MediaPlayer.create (</span><span class="s0">this, </span><span class="s1">R.raw.film)</span><span class="s0">;</span>
+            <span class="s1">player.setOnCompletionListener (</span><span class="s0">new </span><span class="s1">MediaPlayer.OnCompletionListener () {</span>
+                <span class="s1">@Override</span>
+                <span class="s0">public void </span><span class="s1">onCompletion(MediaPlayer mp) {</span>
+                    <span class="s1">stopPlayer ()</span><span class="s0">;</span>
+                <span class="s1">}</span>
+            <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">}</span>
+        <span class="s1">player.start ()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public  void </span><span class="s1">pause(View view){</span>
+        <span class="s0">if</span><span class="s1">(player!=</span><span class="s0">null</span><span class="s1">){</span>
+            <span class="s1">player.pause ()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">public  void </span><span class="s1">stop(View view){</span>
+        <span class="s1">stopPlayer ()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public  void </span><span class="s1">stopPlayer(){</span>
+        <span class="s1">player.release ()</span><span class="s0">;</span>
+        <span class="s1">player=</span><span class="s0">null;</span>
+        <span class="s1">Toast.makeText (</span><span class="s0">this, </span><span class="s2">&quot;Media Player Released&quot;</span><span class="s0">, </span><span class="s1">Toast.LENGTH_SHORT).show ()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onStop() {</span>
+        <span class="s0">super</span><span class="s1">.onStop ()</span><span class="s0">;</span>
+        <span class="s1">stopPlayer ()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+
+
+
+
+</pre>
+</body>
+</html>

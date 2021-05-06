@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#58DCCF"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:hint="FILM-SORU"
+        android:textColor="#DC2764"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/Zor"
+        android:layout_width="246dp"
+        android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="215dp"
+        android:background="#D40019">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="ZOR"
+            android:textColor="#E89720"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Kolay"
+        android:layout_width="245dp"
+        android:layout_height="39dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="406dp"
+        android:background="#08FB12">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="KOLAY"
+            android:textColor="#E89720"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Orta"
+        android:layout_width="224dp"
+        android:layout_height="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="187dp"
+        android:layout_marginEnd="13dp"
+        android:background="#E8D10A">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="59dp"
+            android:layout_marginBottom="0dp"
+            android:text="ORTA"
+            android:textColor="#E89720"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/music"
+        android:layout_width="232dp"
+        android:layout_height="41dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="120dp"
+        android:background="#00BCD4">
+
+        <TextView
+            android:id="@+id/btnMusic"
+            android:layout_width="118dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="0dp"
+            android:text="MUSİC"
+            android:textColor="#E89720"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView"
+        android:layout_marginBottom="80dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="12sp"
+        android:layout_above="@+id/kullaniciadi"
+        android:textColor="#ffffff"
+        android:text="HOŞGELDİN"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/kullaniciadi"
+        android:layout_marginBottom="59dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:text="Gülay-ADIGÜZEL"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/kadi_duzenle"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toEndOf="@+id/kullaniciadi"
+        android:src="@drawable/ic_action_kullaniciadi"/>
+
+
+</RelativeLayout>
